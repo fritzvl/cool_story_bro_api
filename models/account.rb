@@ -1,3 +1,5 @@
+# Will be used  for the User tracking
+
 class Account < Ohm::Model
   include Ohm::Timestamps
   include Ohm::DataTypes

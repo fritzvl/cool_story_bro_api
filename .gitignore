@@ -5,7 +5,6 @@ bin/*
 vendor/gems/*
 !vendor/gems/cache/
 .sass-cache/*
-.components
 raw_uploads
 public/stories
 .idea

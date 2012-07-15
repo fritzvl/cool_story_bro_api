@@ -63,16 +63,11 @@ class Story < Ohm::Model
   end
 
   def process_photos_data
-    puts self.photos_data.to_s+"data0"
     unless photos_data.respond_to?(:collect)
-      puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$4"
       parsed=JSON.parse(photos_data)
       self.photos_data=parsed
-      puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$4"
     end
-    puts self.photos_data.to_s+"data1"
     photos.replace(self.photos_data.collect{|entry| Photo.create(:photo_url=>entry)})  unless self.photos_data.blank?
-    puts self.photos_data.to_s+"data2"
   end
 
   def process_switches_data

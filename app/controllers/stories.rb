@@ -1,3 +1,5 @@
+#Public part of the web application will be only able to show the created story,
+#everything else - using mobile app using the API
 Coolstorybro.controllers :stories do
 
 
@@ -7,6 +9,7 @@ Coolstorybro.controllers :stories do
     end
   end
 
+  #The only method currently used , and will be used in the near future
   get :show , :map=>"/stories/:id" do
     @story=Story[params[:id]]
     render 'stories/show'
