@@ -1,0 +1,14 @@
+.group
+  =f.label :data
+  =f.error_message_on :data
+  =f.text_field :data, :class => :text_field
+  %span.description Data
+
+.group
+  =f.label :audio
+  =f.error_message_on :audio
+  =f.file_field :file
+  %span.description Audio
+
+  =f.submit :save, :class => :button
+  =f.submit :cancel, :onclick => "window.location='#{url(:stories, :index)}';return false", :class => :button

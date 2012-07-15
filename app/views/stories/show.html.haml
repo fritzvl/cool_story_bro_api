@@ -1,0 +1,22 @@
+#slide
+#indicator
+%button#sb Start
+%button#st Stop
+%audio#audio-player{:preload=>"auto"}
+  %source{ :src=>@story.mp3_url, :type=>"audio/mpeg" }
+  %source{ :src=>@story.m4a_url, :type=>"audio/mp4a-latm"}
+  %source{ :src=>@story.ogg_url, :type=>"audio/ogg"}
+
+:javascript
+  album_images=[];
+  slide_clicks=[];
+  slides=JSON.parse('#{@story.photos_values.to_json}');
+  for (var i = 0; i < slides.length; i++) {
+     album_images[i]=$("<img />").attr('src',slides[i]);
+  }
+  slide_clicks=JSON.parse('#{@story.switches_in_seconds.to_json}');
+
+  album_images[0].appendTo($("#slide"))
+  var splayer = new Player(slide_clicks, new Slider);
+  $("#sb").click(function(){splayer.play()});
+  $("#st").click(function(){splayer.stop()});

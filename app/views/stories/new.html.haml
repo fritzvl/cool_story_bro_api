@@ -1,0 +1,4 @@
+.inner
+ -form_for :story, url(:stories, :create), :class => :form, :multipart=>true  do |f|
+  = partial "stories/form", :locals => { :f => f }
+
